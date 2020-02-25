@@ -1,0 +1,25 @@
+version: '2.0'
+services:
+  xcurrentNodeES:
+    networks:
+      - node2
+    container_name: xcurrent_local_uk
+    image: xcurrent_local_uk:xcurrent_local_uk
+    build:
+      context: xcurrent-server-4.4.2
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    restart: always
+#Ojo CAMBIAMOS A LA VERSION 2.0
+#Puesto que estmaos creando un red interna , ya no tenemos
+#que poner localhost en la IP del xcurrent.properties (lineas 381 y 191)
+#xcurrent.db.postgres.url=jdbc:postgresql://10.224.7.46:5432/globalnode
+networks:
+  node2:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.224.4.0/24
+        gateway: 10.224.4.7
