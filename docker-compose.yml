@@ -21,5 +21,5 @@ networks:
     ipam:
       driver: default
       config:
-      - subnet: 10.224.4.0/24
-        gateway: 10.224.4.7
+      - subnet: ipsubnet/24
+        gateway: ipnew
