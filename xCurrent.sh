@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
 echo "Automatized xcurrent....."
-
+#rm -r xcurrent-server-4.4.2/
+#rm -r xcurrent-schema-4.4.0/
 file="./properties.txt"
 if [ -f "$file" ]								#Load file with properties 
 then
