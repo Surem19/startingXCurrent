@@ -1,0 +1,5 @@
+db_passwd=f43fdsf51scb
+db_user=postgres
+db_name=globalnode
+db_port=5432
+xc_country=es
