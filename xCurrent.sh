@@ -2,6 +2,31 @@
 clear
 echo "Automatized xcurrent....."
 
+file="./properties.txt"
+if [ -f "$file" ]								#Load file with properties 
+then
+    echo "$file found."
+    while IFS='=' read -r key value						#Read the file with properties
+    do
+        key=$(echo $key | tr '.' '_')
+        eval ${key}=\${value}
+    done < "$file"
+    user="${db_user}"								#save the user value in variable
+    pass="${db_passwd}"								#save the pass value in variable
+    port="${db_port}"								#save the port value in variable
+    name="${db_name}"								#save the name value in variable
+    country="${xc_country}"							#save the country value in variable
+else
+    echo "$file not found."
+fi
+
+echo "change values of xcurrent.properties"
+sudo sed -i "s/changeCountry/$country/g" "xcurrent.properties"
+sudo sed -i "s/namepostgres/$name/g" "xcurrent.properties"
+sudo sed -i "s/portpostgres/$port/g" "xcurrent.properties"
+sudo sed -i "s/userpostgres/$user/g" "xcurrent.properties"
+sudo sed -i "s/passpostgres/$pass/g" "xcurrent.properties"
+
 echo "Automatized xcurrent"
 sudo tar -xvf xcurrent-v4.4.2.tar.gz							#Descomprimir el xcurrent.zip
 
@@ -66,5 +91,4 @@ sudo chmod 777 xcurrent-schema-4.4.0/
 	#sudo docker-compose -f docker-compose.yml up
 	
 	
-
 
