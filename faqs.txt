@@ -25,5 +25,6 @@ Preguntas Frecuentes(FAQs)
 	xcurrent.db.postgres.user
 	xcurrent.db.postgres.password
 
-Se recomienda en cualquiera de los dos casos volver a repasar la configuacion y comprobar que en la configuracion que los campos coinciden con los valores de la base de datos y de tu ip.
+
+Se recomienda en cualquiera de los dos casos volver a repasar la configuacion y comprobar que en la configuracion que los campos coinciden con los valores de la base de datos y de tu ip, si alguno de los pasos anteriores tampoco solucionase, se recomienda reiniciar el equipo y volver a cargar el docker-compose
 
