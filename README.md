@@ -10,7 +10,7 @@ This program will execute a script that will be:
  -First, add the necessary properties to configure the xcurrent.
  -Second up the project with docker.
  
-You can change the data you need for the database connection in the properties file 
+You can change the data you need for the xcurrent properties in the properties file 
 
 Look **Installacton** to know the deploy of proyect.
 
