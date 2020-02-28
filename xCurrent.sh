@@ -80,8 +80,7 @@ sudo chmod 777 xcurrent-schema-4.4.0/
 
 	echo "We modify the docker compose"
 	replace=.0
-	subnet=$ip | sed "s/.7/${replace}/"
-	#subnet="$({$ip/.7/.0})"								
+	subnet=$(echo $ip | sed "s/.7/${replace}/")								
 	sudo sed -i "s/ipsubnet/$subnet/g" "docker-compose.yml"				#modifica el docker-compose para añadir la subnet
 	sudo sed -i "s/ipnew/$ip/g" "docker-compose.yml"				#modifica el docker-compose para añadir la subnet
 	
