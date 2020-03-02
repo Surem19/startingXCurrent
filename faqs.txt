@@ -24,7 +24,10 @@ Preguntas Frecuentes(FAQs)
 	xcurrent.db.postgres.url
 	xcurrent.db.postgres.user
 	xcurrent.db.postgres.password
-
+-¿Que hacer si We run the docker compose
+Creating network "startingxcurrent-master4_node2" with driver "bridge"
+ERROR: Pool overlaps with other one on this address space
+?
 
 Se recomienda en cualquiera de los dos casos volver a repasar la configuacion y comprobar que en la configuracion que los campos coinciden con los valores de la base de datos y de tu ip, si alguno de los pasos anteriores tampoco solucionase, se recomienda reiniciar el equipo y volver a cargar el docker-compose
 
