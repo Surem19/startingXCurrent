@@ -85,10 +85,10 @@ sudo chmod 777 xcurrent-schema-4.4.0/
 	sudo sed -i "s/ipnew/$ip/g" "docker-compose.yml"				#modifica el docker-compose para añadir la subnet
 	
 	echo "We clean the docker compose"
-	#sudo docker system prune -a							#Limpiamos por posibles colisiones
+	sudo docker system prune -a							#Limpiamos por posibles colisiones
 
 	echo "We run the docker compose"						#Levantamos  el dockercompose
-	#sudo docker-compose -f docker-compose.yml up
+	sudo docker-compose -f docker-compose.yml up
 	
 	
 
