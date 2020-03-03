@@ -32,6 +32,9 @@ Preguntas Frecuentes(FAQs)
 	Esto es debido a que la configuracion no se ha cargado correctamente, si que esta bien escrita pero no se ha cargado correctamente.
 	Para solucionar esto se debera reiniciar el ordenador y ejecutar el siguiente comando desde la carpeta:
 	'sudo docker-compose -f docker-compose.yml up'
+-¿Que hacer si sale lo siguiente d"ocker.errors.apierror 500 server error internal server error ("b' driber failed programing exteneral connectivity on endpoint"?
+	Esto es debido a que posiblemente haya un contenedor en ese puerto levantando.
+	Para ello deberias comprobar, lo que hay levantado en ese puerto y para volver a levantar el nuevo proyecto deberias parar el contenedor que esta en ese puerto y volver a levantarlo. Para pararlo deberias usar el comando sudo docker stop <idContainer>
 
 Se recomienda en cualquiera de los dos casos volver a repasar la configuacion y comprobar que en la configuracion que los campos coinciden con los valores de la base de datos y de tu ip, si alguno de los pasos anteriores tampoco solucionase, se recomienda reiniciar el equipo y volver a cargar el docker-compose
 
