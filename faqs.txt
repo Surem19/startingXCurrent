@@ -1,40 +1,52 @@
-Preguntas Frecuentes(FAQs)
+Frequent Questions (FAQs)
 
 	
 
--¿Que hacer cuando intenta levantar el docker y no deja debido a un error?
+-What to do when you try to lift the docker and do not leave due to an error?
 	
-	Esto significa que la io no coincide con la ip de nuestro equipo o que la subnet con coincide.
-	Para poder solucionarlo abria que entrar en el archivo docker-compose.yml y modificar los campos gateway y subnet. En estos campos 		habria que añadir tu ip y la subnet de tu ip, se puede conseguir mediante comandos de consola en su terminal de linux.
+	This means that the ip does not match the IP of our computer or that the subnet matches.
+	In order to solve it we have to enter the docker-compose.yml file and modify the gateway and subnet fields. 
+	In these fields you would have to add your ip and the subnet of your ip, it can be achieved through console
+	commands in your linux terminal.
 
--¿Que hacer cuando el sale un error debido al archivo pkcs12?
+-What to do when the pkcs12 file has an error?
 	
-	esto puede ser debido a que no se ha generado bien el encriptado de la contraseña o porque la contraseña que se ha escrito no 		coincide con la  que tiene el archivo xcurrent.properties.También puede pasar que el archivo que genera no esta dubplicado en las 		carpetas correspondientes.	
-	Se recomiendo comprobar que la contraseña que existe en el xcurrent.properties coincide con la generada cuando se ejecuta el jar del 		pkcs12 y comprobar además que se han duplicado las copias correspondientes en las carpetas xcurrent-server y xcurrent-server/etc
+	This may be because the password encryption was not generated correctly or because the password that was written
+	does not match the one in the xcurrent.properties file. It can also happen that the file it generates is not 		duplicated in the corresponding folders.
+	It is recommended to verify that the password, which exists in the xcurrent.properties, matches the one 
+	generated when the pkcs12 jar is executed and also verify that the corresponding copies in the xcurrent-server
+	and xcurrent-server / etc folders have been duplicated
 
--¿Que hacer si aparece el error de refused y el puerto no es el correcto, con error de conexion TCP?
+-What to to when the terminal show a refused error and port is not correct and the programa has a tcp error conexion?
 	
-	Este error puede significar que las propiedades que se usan para configurarla estan mal escritas. Revisar la configuracion del 		xcurrent.properties. Revisar los campos de la url, que esta bien escrita la ip y la base de datos. Revisar tambien  los archivos 		pg_hba.conf  y postgres.conf en la carpeta etc/postgres/10/main y que este bien configurada.
+	This error may mean that the properties used to configure it are misspelled. Review the configuration of the 		xcurrent.properties. Check the fields of the url, which is well written the ip and the database. Also check the 	pg_hba.conf and postgres.conf files in the folder etc / postgres / 10 / main and that it is well configured.
 			
-- ¿Que hacer si sale un error de pooling con error de conexion a base de datos?
+- What to do if a pooling error in the  database connection error?
 	
-	En este caso debemos ir a comprobar dos cosas, la primera que la configuracion en el xcurrent.properties es la correcta y la siguiente 		que la conexion con la base de datos esta activada.
-	Para comrpobar si la conexion esta activada hay que  realizar el siguiente comando en la consola de linux: 'sudo systemctl status 		postgresql'
-	Para  comprobar la configuracion revisar las propiedades siguiente y comprobar que conciden  con tus datos de la base de datos:
+	In this case we must go to check two things, the first one that the configuration in the xcurrent.properties is 	correct and the next one that the connection to the database is activated.
+	To check if the connection is activated, you must perform the following command in the linux console:
+	'sudo systemctl status postgresql'
+	To check the configuration check the following properties and verify that they match your data in the database:
 	xcurrent.db.postgres.url
 	xcurrent.db.postgres.user
 	xcurrent.db.postgres.password
--¿Que hacer si sale el siguiente memnsaje" We run the docker compose Creating network "startingxcurrent-master4_node2" with driver "bridge" ERROR: Pool overlaps with other one on this address space"?
-	Esto puede ser debido a que  el archivo docker-compose no se ha rellenado correctamente.
-	Se debe comprobar estos campos y/o modificar a mano o volver a ejecutar el script, para esto se deberá eliminar la carpeta y volver a descargarla.
+	
+-What to do if the terminal shows the next message: " We run the docker compose Creating network "startingxcurrent-master4_node2" with driver "bridge" ERROR: Pool overlaps with other one on this address space"?
 
--¿Que hacer si Connection to 10.224.4.7:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections?
-	Esto es debido a que la configuracion no se ha cargado correctamente, si que esta bien escrita pero no se ha cargado correctamente.
-	Para solucionar esto se debera reiniciar el ordenador y ejecutar el siguiente comando desde la carpeta:
+	This may be because the docker-compose file has not been filled in correctly.
+	You must check these fields and / or modify by hand or rerun the script, for this you must delete the folder 
+	and download it again.
+
+-What to do if the Connection to 10.224.4.7:5432 is refused? Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections?
+
+	This is because the configuration has not been loaded correctly, if it is well written but not loaded correctly.
+	To solve this, you must restart the computer and execute the following command from the folder:
 	'sudo docker-compose -f docker-compose.yml up'
--¿Que hacer si sale lo siguiente d"ocker.errors.apierror 500 server error internal server error ("b' driber failed programing exteneral connectivity on endpoint"?
-	Esto es debido a que posiblemente haya un contenedor en ese puerto levantando.
-	Para ello deberias comprobar, lo que hay levantado en ese puerto y para volver a levantar el nuevo proyecto deberias parar el contenedor que esta en ese puerto y volver a levantarlo. Para pararlo deberias usar el comando sudo docker stop <idContainer>
+	
+-What to do if the terminal show the next message "docker.errors.apierror 500 server error internal server error ("b' driber failed programing exteneral connectivity on endpoint"?
 
-Se recomienda en cualquiera de los dos casos volver a repasar la configuacion y comprobar que en la configuracion que los campos coinciden con los valores de la base de datos y de tu ip, si alguno de los pasos anteriores tampoco solucionase, se recomienda reiniciar el equipo y volver a cargar el docker-compose
+	This is because there is possibly a container in that port lifting.
+	To do this you should check, what is up in that port and to re-raise the new project you should stop the container
+	and lift it again. To stop it you should use the sudo docker stop <idContainer> command
 
+It is recommended in either case to review the configuration again and verify that in the configuration that the fields match the values of the database and your ip, if any of the previous steps were not resolved, it is recommended to restart the device and reload the docker-compose
